@@ -12,10 +12,10 @@ def tags_posts(request):
         'tags_posts': Tag.objects.all()
     }
 
-def add(request):
-    return {
-        'add': Add.objects.get(id=1)
-    }
+# def add(request):
+#     return {
+#         'add': Add.objects.get(id=1)
+#     }
 
 def page(request):
     return {
