@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from analytics.models import Page
 from blog.models import Post, Add
 
 
@@ -23,8 +24,17 @@ def tag(request, tag_name):
     })
 
 
-def add(request, state):
-    adds = Add.objects.filter(state=state)
+def add(request):
+    # adds = Add.objects.filter(state=state)
+    adds = Add.objects.all().order_by('?')[0]
+    # add=[]
+    # random_add=get.random
     return render(request, 'blog.html', {
         'add': adds
     })
+
+def page(request, page_url):
+    pages = Page.objects.filter(page_url=page_url)
+    return render(request, 'main.html'),{
+        'pages' : pages
+    }

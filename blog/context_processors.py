@@ -1,3 +1,4 @@
+from analytics.models import Page
 from blog.models import Post, Tag, Add
 
 
@@ -14,4 +15,9 @@ def tags_posts(request):
 def add(request):
     return {
         'add': Add.objects.get(id=1)
+    }
+
+def page(request):
+    return {
+        'page': Page.objects.all()
     }

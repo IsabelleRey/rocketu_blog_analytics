@@ -9,9 +9,9 @@ class Page(models.Model):
 
 
 class Location(models.Model):
-    city = models.CharField(max_length=50)
-    region = models.CharField(max_length=50)
-    country = models.CharField(max_length=50)
+    city = models.CharField(max_length=50, null=True)
+    region = models.CharField(max_length=50, null=True)
+    country = models.CharField(max_length=50, null=True)
 
     class Meta:
         unique_together = ['city', 'country']
@@ -30,4 +30,3 @@ class View(models.Model):
 
     def __unicode__(self):
         return u"{} by {} @ {}".format(self.ip_address, self.location, self.timestamp)
-

@@ -55,24 +55,11 @@
 
     <div class="footer">
         <p>&copy; My Blog 2014</p>
-        <p><img src="../../media/{{ add.add_image }}" with="200px" height="200px"></p>
-        <div class="pull-right">Welcome user from {{ location.city }}!</div>
+
+        <div class="pull-right">Welcome user from {{ location.city }}!<p><img src="../../media/{{ add.add_image }}" with="200px" height="200px"></p>
+        </div>
     </div>
 </div>
 </body>
 
-<footer>
-    <div>
-
-
-
-{#        {% endwith %}</p>#}
-
-{#            {% for add in adds %}#}
-{#            <a href="{% url 'add' add.name %}">{{add}}</a>#}
-{#                 {% endfor %}#}
-    </div>
-
-
-</footer>
 </html>
