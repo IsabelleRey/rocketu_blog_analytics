@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from analytics.models import Page
-from blog.models import Post, Add
+from blog.models import Post
 
 
 def blog(request):
@@ -33,8 +33,8 @@ def tag(request, tag_name):
 #         'add': adds
 #     })
 
-def page(request, page_url):
-    pages = Page.objects.filter(page_url=page_url)
-    return render(request, 'main.html'),{
-        'pages' : pages
-    }
+# def page(request, page_url):
+#     pages = Page.objects.filter(page_url=page_url)
+#     return render(request, 'main.html'),{
+#         'pages' : pages
+#     }
