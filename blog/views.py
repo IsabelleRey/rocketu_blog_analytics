@@ -24,17 +24,17 @@ def tag(request, tag_name):
     })
 
 
-# def add(request):
-#     # adds = Add.objects.filter(state=state)
-#     adds = Add.objects.all().order_by('?')[0]
-#     # add=[]
-#     # random_add=get.random
-#     return render(request, 'blog.html', {
-#         'add': adds
-#     })
+def add(request):
+    # adds = Add.objects.filter(state=state)
+    adds = Add.objects.all().order_by('?')[0]
+    # add=[]
+    # random_add=get.random
+    return render(request, 'blog.html', {
+        'add': adds
+    })
 
-# def page(request, page_url):
-#     pages = Page.objects.filter(page_url=page_url)
-#     return render(request, 'main.html'),{
-#         'pages' : pages
-#     }
+def page(request, page_url):
+    pages = Page.objects.filter(page_url=page_url)
+    return render(request, 'main.html'),{
+        'pages' : pages
+    }
