@@ -17,3 +17,12 @@
     virtualenv: '{{ virtualenv_path }}'
     settings: '{{ django_settings_file }}'
   tags: django
+
+
+- name: Run collectstatic
+  django_manage:
+    command: collectstatic
+    app_path: '{{ project_path }}'
+    virtualenv: '{{ virtualenv_path }}'
+    settings: '{{ django_settings_file }}'
+  tags: django

@@ -24,17 +24,23 @@ def tag(request, tag_name):
     })
 
 
-def add(request):
-    # adds = Add.objects.filter(state=state)
-    adds = Add.objects.all().order_by('?')[0]
-    # add=[]
-    # random_add=get.random
-    return render(request, 'blog.html', {
-        'add': adds
-    })
+# def add(request):
+#     # adds = Add.objects.filter(state=state)
+#     adds = Add.objects.all().order_by('?')[0]
+#     # add=[]
+#     # random_add=get.random
+#     return render(request, 'blog.html', {
+#         'add': adds
+#     })
 
-def page(request, page_url):
-    pages = Page.objects.filter(page_url=page_url)
-    return render(request, 'main.html'),{
-        'pages' : pages
-    }
+# def page(request, page_url):
+#     pages = Page.objects.filter(page_url=page_url)
+#     return render(request, 'main.html'),{
+#         'pages': pages
+#     }
+
+def error(request):
+    my_variable = '!'
+    my_list = ['testing', 'a', 'list', 'out']
+    my_list = ["{}{}".format(list_item, my_variable) for list_item in my_list]
+    raise NotImplementedError("Woops! This doesn't exist.")

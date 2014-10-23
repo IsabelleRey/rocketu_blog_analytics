@@ -9,7 +9,8 @@ urlpatterns = patterns('',
     url(r'^blog/$', 'blog.views.blog', name='blog'),
     url(r'^blog/(\d+)/$', 'blog.views.post', name='post'),
     url(r'^blog/(\w+)/$', 'blog.views.tag', name='tag'),
-    url(r'^main/$', 'blog.views.page', name='page'),
+    # url(r'^main/$', 'blog.views.page', name='page'),
+    url(r'^error/$', 'blog.views.error', name='error'),
 )
 
 if settings.DEBUG:
