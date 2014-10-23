@@ -1,27 +1,38 @@
+
+{% load static %}
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>My Blog</title>
-
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reset.min.css' %}">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-56050611-1', 'auto');
-  ga('send', 'pageview');
+        ga('create', 'UA-56050611-1', 'auto');
+        ga('send', 'pageview');
 
-</script>
-
-
+    </script>
+    <!-- start Mixpanel -->
+    <script type="text/javascript">(function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
+        for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="//cdn.mxpnl.com/libs/mixpanel-2.2.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);
+    mixpanel.init("f834d00c7aac55f235689f04e31d05f7");</script>
+    <!-- end Mixpanel -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="{% static "js/mixpanel.js" %}"></script>
 </head>
+
 <body>
 <div class="container">
     <div class="header">
@@ -40,13 +51,13 @@
             {% block main %}{% endblock main %}
         </div>
 
-{#        <div class="col-md-2">#}
+        {#        <div class="col-md-2">#}
 
         <div>
-             <ul>
-            {% for tag in tags_posts %}
-            <li><a href="{% url 'tag' tag.name %}">{{tag}} ({{tag.posts.count}})</a></li>
-                 {% endfor %}
+            <ul>
+                {% for tag in tags_posts %}
+                    <li><a id="tracktags" data-name={{ author_name }} href="{% url 'tag' tag.name %}">{{tag}} ({{tag.posts.count}})</a></li>
+                {% endfor %}
             </ul>
         </div>
 
@@ -60,7 +71,7 @@
             <h3>Checkout our latest post!</h3>
             <h4>{{ latest_post.title }}</h4>
             <div>by {{ latest_post.author }} on {{ latest_post.created }}</div>
-            <a href="{% url 'post' latest_post.pk %}">Read it!</a>
+            <a id="featuredBlog" href="{% url 'post' latest_post.pk %}">Read it!</a>
         </div>
     </div>
 
@@ -69,10 +80,13 @@
     <div class="footer">
         <p>&copy; My Blog 2014</p>
 
-{#        <div class="pull-right">Welcome user from {{ location.city }}!<p><img src="../../media/{{ add.add_image }}" with="200px" height="200px"></p>#}
-        </div>
+        {#        <div class="pull-right">Welcome user from {{ location.city }}!<p><img src="../../media/{{ add.add_image }}" with="200px" height="200px"></p>#}
     </div>
 </div>
-</body>
 
+</body>
+<footer>
+
+
+</footer>
 </html>
